@@ -115,6 +115,17 @@ fetch("./data.json")
 
     mainDiv.appendChild(repliesSectionUser)
 
+    var userComment = document.createElement('div')
+    userComment.className = "userCommentDiv"
+    userComment.innerHTML = `<input type="text" placeholder="Add a comment..." id="comment-area">
+    <div class="profile_send">
+    <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
+    <button id="send_btn">SEND</button>
+    </div>
+    `
+
+    mainDiv.appendChild(userComment)
+
   })
 
     

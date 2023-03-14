@@ -156,4 +156,44 @@ span {
     border-radius: 8px;
 }
 
+.userCommentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 343px;
+    height: 189px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    margin-bottom: 32px;
+    padding-left: 16px;
+}
+
+#comment-area {
+    width: 311px;
+    height: 96px;
+    border: 1px solid #E9EBF0;
+    border-radius: 8px;
+    margin-top: 16px;
+    padding-left: 16px;
+}
+
+.profile_send {
+    display: flex;
+    width: 100%;
+    gap: 175px;
+}
+
+#send_btn {
+    width: 104px;
+    height: 48px;
+    background-color: var(--moderateBlue);
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 
