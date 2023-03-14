@@ -46,6 +46,7 @@ body {
     width: 311px;
     height: 120px;
     line-height: 24px;
+    font-weight: 400;
     color: var(--grayishBlue);
 }
 
@@ -81,12 +82,22 @@ body {
     width: 100%;
 }
 
+
 #last-element {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 16px;
     gap: 145px;
+    width: 100%;
+}
+
+#last-element-child {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 16px;
+    gap: 52px;
     width: 100%;
 }
 
@@ -111,6 +122,38 @@ span {
     gap: 8px;
 }
 
+
 #reply- {
     color: var(--moderateBlue);
 }
+
+.div_sections:nth-child(3) {
+    width: 325px;
+    height: 280px;
+    margin-left: 16px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+#paragraph_3 {
+    width: 293px;
+    height: 144px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grayishBlue);
+}
+
+#last-element:nth-child(3) {
+    gap: 127px;
+}
+
+.div_sections:nth-child(4) {
+    width: 325px;
+    height: 280px;
+    margin-left: 16px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+
