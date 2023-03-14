@@ -130,6 +130,8 @@ fetch("./data.json")
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     const escBtn = document.getElementById('cancel_modal')
+    const removeBtn = document.getElementById('delete_modal')
+
     
     deleteBtn.addEventListener('click', (e) => {
         modal.classList.remove('hidden')
@@ -140,6 +142,13 @@ fetch("./data.json")
         modal.classList.add('hidden')
         overlay.classList.add('hidden')
     })
+
+    removeBtn.addEventListener('click', (removeComment) => {
+        repliesSectionUser.remove();
+        modal.classList.add('hidden')
+        overlay.classList.add('hidden')
+    })
+
 
   })
 
