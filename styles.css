@@ -47,6 +47,7 @@ body {
     height: 120px;
     line-height: 24px;
     font-weight: 400;
+    font-size: 16px;
     color: var(--grayishBlue);
 }
 
@@ -123,9 +124,10 @@ span {
 }
 
 
-#reply- {
+#reply-, #delete {
     color: var(--moderateBlue);
 }
+
 
 .div_sections:nth-child(3) {
     width: 325px;
@@ -196,4 +198,89 @@ span {
     line-height: 24px;
 }
 
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 343px;
+    height: 224px;
+    position: absolute;
+    top: 20%;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding-top: 24px;
+    padding-left: 27px;
+    z-index: 2;
+    gap: 16px;
+
+}
+
+.overlay { 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#delete_comment {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--darkBlue);
+}
+
+#cancel_modal {
+    width: 138px;
+    height: 48px;
+    background-color: var(--grayishBlue);
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#delete_modal {
+    width: 138px;
+    height: 48px;
+    background-color: var(--softRed);
+    border-radius: 8px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#buttons_modal {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    gap: 12px;
+}
+
+#paragraph_modal {
+    width: 288px;
+    height: 72px;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--grayishBlue);
+}
 

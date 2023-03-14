@@ -106,7 +106,7 @@ fetch("./data.json")
     </div>
     <span>
     <img src="./images/icon-delete.svg">
-    <p id="reply-">Delete</p>
+    <p id="delete">Delete</p>
     <img src="./images/icon-reply.svg">
     <p id="reply-">Reply</p>
     <span>
@@ -125,6 +125,21 @@ fetch("./data.json")
     `
 
     mainDiv.appendChild(userComment)
+
+    const deleteBtn = document.getElementById('delete')
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+    const escBtn = document.getElementById('cancel_modal')
+    
+    deleteBtn.addEventListener('click', (e) => {
+        modal.classList.remove('hidden')
+        overlay.classList.remove('hidden')
+    })
+
+    escBtn.addEventListener('click', (esc) => {
+        modal.classList.add('hidden')
+        overlay.classList.add('hidden')
+    })
 
   })
 
