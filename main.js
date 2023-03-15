@@ -95,6 +95,7 @@ fetch("./data.json")
     <div id="first-element">
     <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
     <p id="user-name">${repliesDivSecond.user.username}</p>
+    <div id="target">you</div>
     <p id="timePosted">${repliesDivSecond.createdAt}</p>
     </div> 
     <p id="paragraph_3">@${repliesDivSecond.replyingTo} ${repliesDivSecond.content}</p> 
