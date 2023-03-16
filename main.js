@@ -7,7 +7,9 @@ fetch("./data.json")
     
     const objects = data;
     const mainDiv = document.querySelector('.main_div')
-
+    const date = new Date();
+    let day = date.getMinutes();
+    
     
     const firstDiv = objects.comments[0];
  
@@ -62,10 +64,10 @@ fetch("./data.json")
     mainDiv.appendChild(secondSection)
 
     const repliesDiv = secondDiv.replies[0];
-
     var repliesSection = document.createElement('div')
     repliesSection.className = "div_sections"
     repliesSection.innerHTML = `
+
     <div id="first-element">
     <img id="profile_picture" src="${repliesDiv.user.image.png}">
     <p id="user-name">${repliesDiv.user.username}</p>
@@ -83,12 +85,12 @@ fetch("./data.json")
     <p id="reply-">Reply</p>
     <span>
     </div> 
+    
     `
 
     mainDiv.appendChild(repliesSection)
 
     const repliesDivSecond = secondDiv.replies[1];
-    
     var repliesSectionUser = document.createElement('div')
     repliesSectionUser.className = "div_sections"
     repliesSectionUser.innerHTML = `
@@ -109,7 +111,7 @@ fetch("./data.json")
     <img src="./images/icon-delete.svg">
     <p id="delete">Delete</p>
     <img src="./images/icon-reply.svg">
-    <p id="reply-">Reply</p>
+    <p id="reply-">Edit</p>
     <span>
     </div> 
     `
@@ -127,16 +129,17 @@ fetch("./data.json")
 
     mainDiv.appendChild(userComment)
 
-    const deleteBtn = document.getElementById('delete')
+    
+    const deleteBtn = document.querySelector('#delete')
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     const escBtn = document.getElementById('cancel_modal')
     const removeBtn = document.getElementById('delete_modal')
 
-    
     deleteBtn.addEventListener('click', (e) => {
         modal.classList.remove('hidden')
         overlay.classList.remove('hidden')
+    
     })
 
     escBtn.addEventListener('click', (esc) => {
@@ -151,7 +154,65 @@ fetch("./data.json")
     })
 
 
+    const sendBtn = document.querySelector('#send_btn')
+    
+    sendBtn.addEventListener('click', (addComment) => {
+        var createElement = document.createElement('div')
+        var userCommentNew = document.querySelector('#comment-area').value
+        createElement.className = "div_sections"
+        createElement.innerHTML = `<div id="first-element">
+        <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
+        <p id="user-name">${repliesDivSecond.user.username}</p>
+        <div id="target">you</div>
+        <p id="timePosted">${day} minutes ago</p>
+        </div>
+        <p id="paragraph" contenteditable="false">${userCommentNew}</p>
+        <div id="last-element-child-comment-section">
+        <div id="score">
+        <img src="./images/icon-plus.svg">
+        <p id="score-number">1</p> 
+        <img src="./images/icon-minus.svg">  
+        </div>
+        <div id="mms">
+        <img src="./images/icon-delete.svg">
+        <p id="delete-user-comment">Delete</p>
+        <img src="./images/icon-reply.svg">
+        <p id="reply-">Edit</p>
+        </div>
+        </div>
+        </div>
+        `
+
+        mainDiv.insertBefore(createElement, mainDiv.lastElementChild)
+
+        const del = document.querySelectorAll('#delete-user-comment')
+        
+            for (var i = 0; i < del.length; i++)
+            del[i].addEventListener('click', (remove) => {
+
+                const commentDiv = event.target.closest('.div_sections');
+
+                commentDiv.remove();
+    
+        })
+
+        const editBtn = document.querySelectorAll('#reply-')
+        editBtn.forEach(function(elem) {
+            elem.addEventListener("click", () => {       
+                
+                var edit = document.querySelectorAll("[contenteditable=false]");
+                    for(var i=0; i< edit.length; i++)
+                    edit[i].setAttribute("contenteditable", true);            
+            });
+        });
+
+        document.querySelector('#comment-area').value = '';
+        
+    }) 
+
+
   })
+
 
     
 
