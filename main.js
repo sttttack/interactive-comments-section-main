@@ -100,7 +100,7 @@ fetch("./data.json")
     <div id="target">you</div>
     <p id="timePosted">${repliesDivSecond.createdAt}</p>
     </div> 
-    <p id="paragraph_3">@${repliesDivSecond.replyingTo} ${repliesDivSecond.content}</p> 
+    <p id="paragraph_3" contenteditable="true">@${repliesDivSecond.replyingTo} ${repliesDivSecond.content}</p> 
     <div id="last-element-child"> 
     <div id="score">
     <img src="./images/icon-plus.svg">
@@ -197,12 +197,19 @@ fetch("./data.json")
         })
 
         const editBtn = document.querySelectorAll('#reply-')
+        const focus = document.querySelectorAll('#paragraph');
         editBtn.forEach(function(elem) {
             elem.addEventListener("click", () => {       
                 
                 var edit = document.querySelectorAll("[contenteditable=false]");
                     for(var i=0; i< edit.length; i++)
-                    edit[i].setAttribute("contenteditable", true);            
+                    edit[i].setAttribute("contenteditable", true);
+                    
+                    focus.forEach(element => {
+
+                        element.focus();
+                    });
+                    console.log()            
             });
         });
 
