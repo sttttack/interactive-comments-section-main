@@ -42,10 +42,6 @@ body {
     height: 280px;
 }
 
-.div_sections:nth-child(4) {
-    
-}
-
 #paragraph {
     width: 311px;
     height: 120px;
@@ -59,7 +55,7 @@ body {
     height: 144px;
 }
 
-#score {
+#score, #score-1, #score-number-1  {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -338,5 +334,161 @@ span {
     background-color: var(--lightGray);
   }
 
+
+  @media only screen and (min-width: 769px) {
+
+    .div_sections {
+        width: 730px;
+        height: 167px;
+        justify-content: normal;
+    }
+
+    #first-element {
+        position: relative;
+        margin-top: 24px;
+        left: 64px;
+    }
+
+    #last-element {
+        height: 50px;
+    }
+
+    .div_sections:nth-child(1) {
+        margin-top: 64px;
+    }
+
+    .div_sections:nth-child(2) {
+        height: 167px;
+    }
+
+    .div_sections:nth-child(3) {
+        position: relative;
+        left: 90px;
+        width: 624px;
+        height: 167px;
+
+    }
+    .div_sections:nth-child(4) {
+        position: relative;
+        left: 90px;
+        width: 624px;
+        height: 167px;
+        
+    }
+
+    .userCommentDiv {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 730px;
+        height: 144px;
+        flex-wrap: wrap;
+    }
+
+    #score, #score-1, #score-number-1  {
+        position: relative;
+        flex-direction: column;
+        top: -70px;
+        width: 40px;
+        height: 100px;
+        
+    }
+
+    #score-number-1 {
+        left: -140px;
+        top: -112px;
+    }
+
+    #score-1 {
+        top: -104px;
+    }
+
+    #paragraph {
+        position: relative;
+        top: 15px;
+        left: 24px;   
+        width: 618px;
+        height: 72px;
+    }
+
+    #paragraph_3 {
+        position: relative;
+        left: 33px;
+        top: 15px;
+        width: 530px;
+        height: 72px;
+        font-weight: 400;
+    }
+
+    span {
+        position: relative;
+        left: 459px;
+        top: -115px;
+    }
+
+    #span_1 {
+        left: 353px;
+    }
+
+    #span_2 {
+        left: 364px;
+        top: -144px;
+    }
+
+#profile_picture {
+    width: 40px;
+    height: 40px;
+}
+
+#profile_picture-comment { 
+    position: relative;
+    top: 28px;
+    left: -426px;
+    width: 40px;
+    height: 40px;
+}
+
+#send_btn {
+    position: relative;
+    top: 24px;
+    left: -71px;
+}
+
+#comment-area {
+    position: relative;
+    left: 128px;
+    width: 506px;
+    height: 88px;
+}
+
+#mms {
+    position: relative;
+    left: 140px;
+    top: -144px;
+}
+
+.modal {
+    width: 400px;
+    height: 252px;
+    padding-top: 0;
+}
+
+#paragraph_modal {
+    width: 336px;
+    height: 72px;
+}
+
+#delete_comment {
+    width: 193px;
+    height: 28px;
+    font-size: 24px;
+}
+
+#cancel_modal, #delete_modal {
+    width: 161px;
+}
+
+
+
+  }
 
 

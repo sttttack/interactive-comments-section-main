@@ -80,7 +80,7 @@ fetch("./data.json")
     <p id="score-number">${repliesDiv.score}</p> 
     <img src="./images/icon-minus.svg">  
     </div>
-    <span>
+    <span id="span_1">
     <img src="./images/icon-reply.svg">
     <p id="reply-">Reply</p>
     <span>
@@ -102,12 +102,12 @@ fetch("./data.json")
     </div> 
     <p id="paragraph_3" contenteditable="true">@${repliesDivSecond.replyingTo} ${repliesDivSecond.content}</p> 
     <div id="last-element-child"> 
-    <div id="score">
+    <div id="score-1">
     <img src="./images/icon-plus.svg">
     <p id="score-number">${repliesDivSecond.score}</p> 
     <img src="./images/icon-minus.svg">  
     </div>
-    <span>
+    <span id="span_2">
     <img src="./images/icon-delete.svg">
     <p id="delete">Delete</p>
     <img src="./images/icon-reply.svg">
@@ -120,9 +120,9 @@ fetch("./data.json")
 
     var userComment = document.createElement('div')
     userComment.className = "userCommentDiv"
-    userComment.innerHTML = `<input type="text" placeholder="Add a comment..." id="comment-area">
+    userComment.innerHTML = `<input type="text" maxlength="200" placeholder="Add a comment..." id="comment-area">
     <div class="profile_send">
-    <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
+    <img id="profile_picture-comment" src="${repliesDivSecond.user.image.png}">
     <button id="send_btn">SEND</button>
     </div>
     `
@@ -166,9 +166,11 @@ fetch("./data.json")
         <div id="target">you</div>
         <p id="timePosted">${day} minutes ago</p>
         </div>
+        <div>
         <p id="paragraph" contenteditable="false">${userCommentNew}</p>
+        </div>
         <div id="last-element-child-comment-section">
-        <div id="score">
+        <div id="score-number-1">
         <img src="./images/icon-plus.svg">
         <p id="score-number">1</p> 
         <img src="./images/icon-minus.svg">  
