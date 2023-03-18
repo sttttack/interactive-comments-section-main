@@ -14,7 +14,8 @@ fetch("./data.json")
     const firstDiv = objects.comments[0];
  
     var firstSection = document.createElement('div')
-    firstSection.className = "div_sections"
+    
+    firstSection.className += " div_sections anotherclass"
     firstSection.innerHTML = `
     <div id="first-element">
     <img id="profile_picture" src="${firstDiv.user.image.png}">
@@ -40,7 +41,8 @@ fetch("./data.json")
     const secondDiv = objects.comments[1];
 
     var secondSection = document.createElement('div')
-    secondSection.className = "div_sections"
+    
+    secondSection.className += " div_sections_2 anotherclass"
     secondSection.innerHTML = `
     <div id="first-element">
     <img id="profile_picture" src="${secondDiv.user.image.png}">
@@ -65,7 +67,7 @@ fetch("./data.json")
 
     const repliesDiv = secondDiv.replies[0];
     var repliesSection = document.createElement('div')
-    repliesSection.className = "div_sections"
+    repliesSection.className += " div_sections_1 anotherclass"
     repliesSection.innerHTML = `
 
     <div id="first-element">
@@ -92,7 +94,7 @@ fetch("./data.json")
 
     const repliesDivSecond = secondDiv.replies[1];
     var repliesSectionUser = document.createElement('div')
-    repliesSectionUser.className = "div_sections"
+    repliesSectionUser.className = "div_sections_1"
     repliesSectionUser.innerHTML = `
     <div id="first-element">
     <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
@@ -111,7 +113,7 @@ fetch("./data.json")
     <img src="./images/icon-delete.svg">
     <p id="delete">Delete</p>
     <img src="./images/icon-reply.svg">
-    <p id="reply-">Edit</p>
+    <p id="edit-">Edit</p>
     <span>
     </div> 
     `
@@ -159,7 +161,7 @@ fetch("./data.json")
     sendBtn.addEventListener('click', (addComment) => {
         var createElement = document.createElement('div')
         var userCommentNew = document.querySelector('#comment-area').value
-        createElement.className = "div_sections"
+        createElement.className = "div_sections-comment"
         createElement.innerHTML = `<div id="first-element">
         <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
         <p id="user-name">${repliesDivSecond.user.username}</p>
@@ -179,7 +181,7 @@ fetch("./data.json")
         <img src="./images/icon-delete.svg">
         <p id="delete-user-comment">Delete</p>
         <img src="./images/icon-reply.svg">
-        <p id="reply-">Edit</p>
+        <p id="edit-">Edit</p>
         </div>
         </div>
         </div>
@@ -192,13 +194,13 @@ fetch("./data.json")
             for (var i = 0; i < del.length; i++)
             del[i].addEventListener('click', (remove) => {
 
-                const commentDiv = event.target.closest('.div_sections');
+                const commentDiv = event.target.closest('.div_sections-comment');
 
                 commentDiv.remove();
     
         })
 
-        const editBtn = document.querySelectorAll('#reply-')
+        const editBtn = document.querySelectorAll('#edit-')
         const focus = document.querySelectorAll('#paragraph');
         editBtn.forEach(function(elem) {
             elem.addEventListener("click", () => {       
@@ -217,8 +219,69 @@ fetch("./data.json")
 
         document.querySelector('#comment-area').value = '';
         
-    }) 
+    })
+     
+    const replyBtn = document.querySelectorAll('#reply-')
+    console.log(replyBtn)
 
+    replyBtn.forEach(item => {
+        item.addEventListener('click', (j) => {
+
+            console.log('I got clicked')
+            const closestDiv = event.target.closest('.anotherclass');
+            var userReply = document.createElement('div')
+            userReply.className = "userReplyDiv"
+            userReply.innerHTML = `
+            <input type="text" maxlength="200" placeholder="Add a comment..." id="reply-comment">
+            <div class="profile_send">
+            
+            <img id="profile_picture-comment" src="${repliesDivSecond.user.image.png}">
+            <button id="reply_btn">REPLY</button>
+            </div>
+            `
+            
+            closestDiv.after(userReply)
+
+        const innerReplyBtn = document.querySelectorAll('#reply_btn')
+            innerReplyBtn.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    console.log('you clicked me')
+                    
+                    var createElement = document.createElement('div')                 
+                    var replyComment = document.querySelectorAll('#reply-comment')
+                    createElement.className = "div_sections-comment"
+                    createElement.innerHTML = `<div id="first-element">
+                    <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
+                    <p id="user-name">${repliesDivSecond.user.username}</p>
+                    <div id="target">you</div>
+                    <p id="timePosted">${day} minutes ago</p>
+                    </div>
+                    <div>         
+                    <p id="paragraph" contenteditable="false">You need to fix that !</p>
+                    </div>
+                    <div id="last-element-child-comment-section">
+                    <div id="score-number-1">
+                    <img src="./images/icon-plus.svg">
+                    <p id="score-number">1</p> 
+                    <img src="./images/icon-minus.svg">  
+                    </div>
+                    <div id="mms">
+                    <img src="./images/icon-delete.svg">
+                    <p id="delete-user-comment">Delete</p>
+                    <img src="./images/icon-reply.svg">
+                    <p id="edit-">Edit</p>
+                    </div>
+                    </div>
+                    </div>
+                    `
+                    
+                    closestDiv.after(createElement)
+                    userReply.remove();
+                })
+            });
+
+        })
+    });
 
   })
 
