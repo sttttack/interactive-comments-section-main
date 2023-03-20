@@ -154,13 +154,14 @@ span {
 #vertical-line {
   width: 300px;
   height: 576px;
-
   background-color: blue;
 }
 
 #last-element:nth-child(3) {
   gap: 127px;
 }
+
+
 
 .div_sections_1 {
   display: flex;
@@ -272,6 +273,11 @@ span {
   color: var(--darkBlue);
 }
 
+#delete-user-comment-1 {
+  color: var(--moderateBlue);
+  cursor: pointer;
+}
+
 #cancel_modal {
   width: 138px;
   height: 48px;
@@ -353,6 +359,10 @@ span {
 #profile_picture-comment {
   width: 32px;
   height: 32px;
+}
+
+.love_love {
+  color: var(--moderateBlue);
 }
 
 @media only screen and (min-width: 769px) {

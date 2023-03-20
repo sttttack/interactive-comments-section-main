@@ -9,12 +9,10 @@ fetch("./data.json")
     const mainDiv = document.querySelector('.main_div')
     const date = new Date();
     let day = date.getMinutes();
-    
-    
+
     const firstDiv = objects.comments[0];
  
     var firstSection = document.createElement('div')
-    
     firstSection.className += " div_sections anotherclass"
     firstSection.innerHTML = `
     <div id="first-element">
@@ -68,6 +66,7 @@ fetch("./data.json")
     const repliesDiv = secondDiv.replies[0];
     var repliesSection = document.createElement('div')
     repliesSection.className += " div_sections_1 anotherclass"
+    repliesDiv.replyingTo
     repliesSection.innerHTML = `
 
     <div id="first-element">
@@ -222,17 +221,17 @@ fetch("./data.json")
     })
      
     const replyBtn = document.querySelectorAll('#reply-')
-    console.log(replyBtn)
+    console.log(replyBtn[1])
 
     replyBtn.forEach(item => {
         item.addEventListener('click', (j) => {
 
-            console.log('I got clicked')
             const closestDiv = event.target.closest('.anotherclass');
+            var nextSibling = closestDiv.nextSibling;
             var userReply = document.createElement('div')
             userReply.className = "userReplyDiv"
             userReply.innerHTML = `
-            <input type="text" maxlength="200" placeholder="Add a comment..." id="reply-comment">
+            <input type="text" maxlength="200" placeholder="Reply to..." id="reply-comment">
             <div class="profile_send">
             
             <img id="profile_picture-comment" src="${repliesDivSecond.user.image.png}">
@@ -240,47 +239,85 @@ fetch("./data.json")
             </div>
             `
             
-            closestDiv.after(userReply)
+            mainDiv.insertBefore(userReply, nextSibling)
 
-        const innerReplyBtn = document.querySelectorAll('#reply_btn')
-            innerReplyBtn.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    console.log('you clicked me')
-                    
-                    var createElement = document.createElement('div')                 
-                    var replyComment = document.querySelectorAll('#reply-comment')
-                    createElement.className = "div_sections-comment"
-                    createElement.innerHTML = `<div id="first-element">
-                    <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
-                    <p id="user-name">${repliesDivSecond.user.username}</p>
-                    <div id="target">you</div>
-                    <p id="timePosted">${day} minutes ago</p>
-                    </div>
-                    <div>         
-                    <p id="paragraph" contenteditable="false">You need to fix that !</p>
-                    </div>
-                    <div id="last-element-child-comment-section">
-                    <div id="score-number-1">
-                    <img src="./images/icon-plus.svg">
-                    <p id="score-number">1</p> 
-                    <img src="./images/icon-minus.svg">  
-                    </div>
-                    <div id="mms">
-                    <img src="./images/icon-delete.svg">
-                    <p id="delete-user-comment">Delete</p>
-                    <img src="./images/icon-reply.svg">
-                    <p id="edit-">Edit</p>
-                    </div>
-                    </div>
-                    </div>
-                    `
-                    
-                    closestDiv.after(createElement)
-                    userReply.remove();
-                })
-            });
 
-        })
+            // Comment section needs to be fixed, delete button is not working, edit either.
+
+        
+            const innerReplyBtn = document.querySelectorAll('#reply_btn')
+            console.log(innerReplyBtn)
+
+                for (var h = 0; h < innerReplyBtn.length; h++) {
+                    innerReplyBtn[h].addEventListener('click', (s) => {
+                        console.log('you clicked me')
+                        
+                        var replyComment = document.querySelectorAll('#reply-comment')
+                        replyComment.forEach(element => {
+
+                            if (closestDiv.classList.contains('div_sections')) {
+                                element.value = "@amyrobson " + element.value;
+                            } else if (closestDiv.classList.contains('div_sections_2')) {
+                                element.value = "@maxblagun " + element.value;
+                            } else if (closestDiv.classList.contains('div_sections_1')) {
+                                element.value = "@ramsesmiron " + element.value;
+                            }
+
+                        var createElement = document.createElement('div')                         
+                        createElement.className = "div_sections-comment"
+                        createElement.innerHTML = `<div id="first-element">
+                        <img id="profile_picture" src="${repliesDivSecond.user.image.png}">
+                        <p id="user-name">${repliesDivSecond.user.username}</p>
+                        <div id="target">you</div>
+                        <p id="timePosted">${day} minutes ago</p>
+                        </div>
+                        <div>         
+                        <p id="paragraph" contenteditable="false">${element.value} </p>
+                        </div>
+                        <div id="last-element-child-comment-section">
+                        <div id="score-number-1">
+                        <img src="./images/icon-plus.svg">
+                        <p id="score-number">1</p> 
+                        <img src="./images/icon-minus.svg">  
+                        </div>
+                        <div id="mms">
+                        <img src="./images/icon-delete.svg">
+                        <p id="delete-user-comment-1">Delete</p>
+                        <img src="./images/icon-reply.svg">
+                        <p id="edit-">Edit</p>
+                        </div>
+                        </div>
+                        </div>
+                        `                        
+                        
+                        mainDiv.insertBefore(createElement, nextSibling)
+                        userReply.remove();
+                        
+                        const deleteUsrComment = document.querySelectorAll('#delete-user-comment-1');
+                        for (var i = 0; i < deleteUsrComment.length; i++)
+
+                        deleteUsrComment[i].addEventListener('click', () => {
+                            console.log('you clicked delete')
+
+                            const commentDiv = event.target.closest('.div_sections-comment');
+
+
+                            commentDiv.remove();
+                        })
+
+                    });
+                    
+                
+
+                    })
+                }
+
+
+                
+
+        }, {once : true});
+
+
     });
 
   })
