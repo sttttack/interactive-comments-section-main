@@ -203,6 +203,7 @@ span {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  height: 300px;
   color: var(--grayishBlue);
 }
 
@@ -232,7 +233,7 @@ span {
   line-height: 24px;
 }
 
-.modal {
+.modal, .modal1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -249,7 +250,7 @@ span {
   gap: 16px;
 }
 
-.overlay {
+.overlay, .overlay1 {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -262,11 +263,11 @@ span {
   z-index: 1;
 }
 
-.hidden {
+.hidden, .hidden1 {
   display: none;
 }
 
-#delete_comment {
+#delete_comment, .delete_comment1 {
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
@@ -278,7 +279,7 @@ span {
   cursor: pointer;
 }
 
-#cancel_modal {
+#cancel_modal, #cancel_modal1 {
   width: 138px;
   height: 48px;
   background-color: var(--grayishBlue);
@@ -292,7 +293,7 @@ span {
   cursor: pointer;
 }
 
-#delete_modal {
+.delete_modal, .delete_modal1, .delete_modal2 {
   width: 138px;
   height: 48px;
   background-color: var(--softRed);
@@ -306,14 +307,18 @@ span {
   cursor: pointer;
 }
 
-#buttons_modal {
+.delete_modal2 {
+  display: none;
+}
+
+#buttons_modal, #buttons_modal1 {
   display: flex;
   width: auto;
   flex-direction: row;
   gap: 12px;
 }
 
-#paragraph_modal {
+#paragraph_modal, #paragraph_modal1 {
   width: 288px;
   height: 72px;
   line-height: 24px;
@@ -502,26 +507,29 @@ span {
     top: -144px;
   }
 
-  .modal {
+  .modal, .modal1 {
     width: 400px;
     height: 252px;
     padding-top: 0;
     padding-left: 32px;
   }
 
-  #paragraph_modal {
+  #paragraph_modal, #paragraph_modal1 {
     width: 336px;
     height: 72px;
   }
 
-  #delete_comment {
+  #delete_comment, #delete_comment1 {
     width: 193px;
     height: 28px;
     font-size: 24px;
   }
 
   #cancel_modal,
-  #delete_modal {
+  .delete_modal, 
+  .delete_modal1, 
+  #cancel_modal1,
+  .delete_modal2 {
     width: 161px;
   }
 
